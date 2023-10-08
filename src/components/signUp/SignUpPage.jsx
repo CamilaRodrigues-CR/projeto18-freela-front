@@ -51,8 +51,8 @@ export default function SignUpPage() {
                 <input name="email" placeholder="  e-mail" type="email" required value={form.email} onChange={handleForm} />
                 <input name="phone" placeholder="  telefone" type="tel"  value={form.phone} onChange={handleForm} required />
                 <input name="cpf" placeholder="  cpf" type="int" value={form.cpf} onChange={handleForm} required />
-                <input name="password" placeholder="  senha" type="password" autocomplete="new-password" value={form.password} onChange={handleForm} required />
-                <input name="confirmPassword" placeholder="Confirme a senha" type="password" autocomplete="new-password" required value={confirmPassword.confirmPassword} onChange={handleForm}/>
+                <input name="password" placeholder="  senha" type="password" value={form.password} onChange={handleForm} required />
+                <input name="confirmPassword" placeholder="Confirme a senha" type="password" required value={confirmPassword.confirmPassword} onChange={handleForm}/>
                 <button type="submit"> Cadastrar </button>
                 <Link to={'/signin'}>
                     <div> Já tenho cadastro! </div>

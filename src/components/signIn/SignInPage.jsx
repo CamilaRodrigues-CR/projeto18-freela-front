@@ -1,8 +1,8 @@
-import logo from "../assets/imgs/logo.png"
+import logo from "../../assets/imgs/logo.png"
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import apiRoute from "../constants/apiRoute";
+import apiRoute from "../../constants/apiRoute";
+import { ContainerSigninPage } from "./styled";
 
 export default function SignInPage() {
     const navigate = useNavigate();
@@ -46,51 +46,3 @@ export default function SignInPage() {
     )
 }
 
-
-//----------------------------------- ESTILIZAÇÃO ---------------------------------------------
-const ContainerSigninPage = styled.div`
-    background-color: whitesmoke;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-
-     form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 40px;
-        
-     }
-     input {
-        width: 350px;
-        height: 50px;
-        margin-top: 20px;
-        border-radius: 10px;
-        border: thistle 1px solid;
-
-     }
-     button {
-        background-color: #bdb5d1;
-        color: white;
-        width: 250px;
-        height: 40px;
-        border: thistle 1px solid;
-        border-radius: 10px;
-        margin-top:20px;
-     }
-
-     div {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        color: #020d46;
-        width: 250px;
-        height: 20px;
-        margin-top:20px;
-      
-     }
-     
-`

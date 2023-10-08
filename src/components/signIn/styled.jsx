@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-
-export const ContainerSignupPage = styled.div`
+export const ContainerSigninPage = styled.div`
     background-color: whitesmoke;
     height: 100%;
     font-family: 'Roboto', sans-serif;
@@ -21,7 +20,7 @@ export const ContainerSignupPage = styled.div`
         width: 350px;
         height: 50px;
         margin-top: 20px;
-        border-radius: 5px;
+        border-radius: 10px;
         border: thistle 1px solid;
 
      }
@@ -33,9 +32,6 @@ export const ContainerSignupPage = styled.div`
         border: thistle 1px solid;
         border-radius: 10px;
         margin-top:20px;
-         &:hover {
-            background-color: #5421bb;
-         }
      }
 
      div {
