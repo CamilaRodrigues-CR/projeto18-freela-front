@@ -1,12 +1,34 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import HomePage from "./components/HomePage"
+import SignInPage from "./components/SignInPage"
+import SignUpPage from "./components/SignUpPage"
+import ProductsPage from "./components/ProductsPage"
+import MyProductsPage from "./components/MyProducts"
 
 
 function App() {
   
   return (
-    <>
-      Olá mundo, serei uma linda página!!
-    </>
+    <BrowserRouter>
+    
+      <Routes >
+        <Route path="/" element= {<HomePage />}/>
+        <Route path="/signin" element= {<SignInPage />}/>
+        <Route path="/signup" element= {<SignUpPage />}/>
+        <Route path="/products" element= {<ProductsPage />}/>
+        
+        <Route path="/myproducts" element= {<MyProductsPage />}/>
+
+      </Routes>
+    </BrowserRouter>
   )
 }
 
 export default App
+
+/* 
+<Route path="/products/:id" element= {<ProductPage />}/>
+---------------------------
+   NÃO ESQUECER DA NAVBAR
+---------------------------
+*/
