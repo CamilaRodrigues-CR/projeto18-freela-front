@@ -1,22 +1,42 @@
 import logo from "../assets/imgs/logo.png"
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import apiRoute from "../constants/apiRoute";
 
 export default function SignInPage() {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const navigate = useNavigate();
+    const [form, setForm] = useState({email: "", password: ""})
 
+    function handleForm(e) {
+        setForm({ ...form, [e.target.name]: e.target.value })
+    }
+
+    function signin (e){
+        e.preventDefault()
+        
+        apiRoute.signIn(form)
+        .then(res =>{
+
+            navigate('/products')
+        })
+        .catch(err=>{
+            console.log(err.response.data)
+            alert(err.response.data)
+        })
+    }
 
     return (
         <ContainerSigninPage>
+            <Link to={'/'}>
             <img src={logo} alt="Logo da empresa" />
+            </Link>
 
-            <form>
-                <input type="email" placeholder="    email" value={email} onChange={e => e.target.value} />
-                <input type="password" placeholder="    senha" value={password} onChange={e => e.target.value} />
+            <form onSubmit={signin}>
+                <input name="email" placeholder="  email" type="email" value={form.email} onChange={handleForm} />
+                <input name="password" placeholder="  senha" type="password" value={form.password} onChange={handleForm} />
 
-                <button> Entrar  </button>
+                <button type="submit"> Entrar  </button>
                 <Link to={'/signup'}>
                     <div> Ainda não tenho cadastro! </div>
                 </Link>

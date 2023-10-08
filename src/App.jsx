@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import HomePage from "./components/HomePage"
 import SignInPage from "./components/SignInPage"
-import SignUpPage from "./components/SignUpPage"
+import SignUpPage from "./components/signUp/SignUpPage"
 import ProductsPage from "./components/ProductsPage"
 import MyProductsPage from "./components/MyProducts"
 
