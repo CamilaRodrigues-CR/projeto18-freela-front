@@ -10,8 +10,14 @@ export default function Navbar() {
                 <img src={logo2} alt="Logo da empresa" />
             </Link>
             <div>
-                myPage
-                <button>x</button>
+                <Link to={'/newProduct'}>
+                    Quero desapegar também!
+                </Link>
+                <Link to={'/myproducts'}>
+                    <p>Minha página</p>
+                </Link>
+
+
             </div>
 
         </ContainerNavbar>

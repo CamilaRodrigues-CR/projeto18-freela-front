@@ -10,11 +10,15 @@ background-color: #e8e5ecf9;
     justify-content: space-between;
     border-bottom: #2d2d2d  1px solid ;
     img {
-        width: 160px;
+        width: 200px;
         margin-left: 40px;
     }
     div{
-        width: 160px;
-        margin-right: 40px;
+        display: contents;
+        width: 460px;
+        margin-right: 50px;
+    }
+    p{
+        margin-right: 50px;
     }
 `

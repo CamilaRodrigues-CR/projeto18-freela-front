@@ -36,10 +36,11 @@ export default function ProductsByIdPage() {
                 
                     <ProductCard key={product.id}>
                         <img src={product.photo} alt={product.name} />
-                        <p>{product.name}</p>
-                        <p>R${(product.price / 100).toFixed(2)}</p>
-                        <p>{product.categorie}</p>
-                        <p>{product.description}</p>
+                        <p>Produto: {product.name}</p>
+                        <p>Valor: R${(product.price / 100).toFixed(2)}</p>
+                        <p>Categoria: {product.type}</p>
+                        <p>Descrição: {product.description}</p>
+                        
                     </ProductCard>
               
             </ContainerProducts>
