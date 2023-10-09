@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import apiProducts from "../../constants/apiProducts";
-import DeleteProduct from "../DeleteProduct";
-import { ContainerProducts, ContainerProductsPage, ProductCard } from "../productById/styled";
-import PatchProduct from "../PatchProduct";
+import { ContainerProducts, ContainerProductsPage } from "../productById/styled";
 import { ProductmyCard } from "./styled";
 import { Link } from "react-router-dom";
 
@@ -27,13 +25,11 @@ export default function MyProductsPage() {
     const handlePatchClick = () => {
         alert("Pedido de alteração recebido!");
 
-        <PatchProduct />
     }
 
     const handleDeleteClick = () => {
         alert("Pedido de deleção recebido!");
 
-        <DeleteProduct />
     }
 
 
