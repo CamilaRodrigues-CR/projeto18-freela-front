@@ -1,7 +1,7 @@
 import logo from "../../assets/imgs/logo.png"
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import apiRoute from "../../constants/apiRoute";
+import apiAuth from "../../constants/apiAuth";
 import { ContainerSignupPage } from "./styled";
 
 export default function SignUpPage() {
@@ -29,7 +29,7 @@ export default function SignUpPage() {
             return alert("A senha deve ter ao menos 3 caracteres!")
         }
 
-        apiRoute.signUp(form)
+        apiAuth.signUp(form)
             .then(res => {
                 navigate('/signin')
             })

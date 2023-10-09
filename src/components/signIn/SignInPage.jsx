@@ -1,7 +1,7 @@
 import logo from "../../assets/imgs/logo.png"
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import apiRoute from "../../constants/apiRoute";
+import apiAuth from "../../constants/apiAuth";
 import { ContainerSigninPage } from "./styled";
 
 export default function SignInPage() {
@@ -15,8 +15,10 @@ export default function SignInPage() {
     function signin (e){
         e.preventDefault()
         
-        apiRoute.signIn(form)
+        apiAuth.signIn(form)
         .then(res =>{
+            const token = res.data.token;
+            localStorage.setItem('token', token);
 
             navigate('/products')
         })
@@ -46,3 +48,21 @@ export default function SignInPage() {
     )
 }
 
+/*
+// Para armazenar o token:
+const token = res.data.token;
+localStorage.setItem('token', token);
+
+// Para recuperar o token:
+const token = localStorage.getItem('token');
+
+// Para remover o token:
+localStorage.removeItem('token');
+
+//para enviar o token
+const config = {
+	headers: {
+		"Authorization": "Bearer token_recebido"
+	}
+}
+*/

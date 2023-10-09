@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 function signIn (body){
@@ -11,17 +10,12 @@ function signUp (body){
     return promise;
 }
 
-function products () {
-    const promise = axios.get(`${import.meta.env.VITE_API_URL}/products`)    
-    return promise;
-}
-
 
 function signOut(){
     const promise = axios.delete(`${import.meta.env.VITE_API_URL}/signout`)    
     return promise;
 }
 
-const apiRoute = {signIn, signUp, products, signOut};
+const apiAuth = {signIn, signUp, signOut};
 
-export default apiRoute;
+export default apiAuth;
