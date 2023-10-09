@@ -12,7 +12,7 @@ export default function PostProductsPage() {
       price: "",
       description: "",
       photo: "",
-      type: 'eletrodoméstico' // Defina um valor padrão aqui
+      type: 'eletrodoméstico' 
     });
     const token = localStorage.getItem('token');
   

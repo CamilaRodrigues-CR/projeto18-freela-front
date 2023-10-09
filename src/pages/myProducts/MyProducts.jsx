@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import apiProducts from "../../constants/apiProducts";
-import DeleteProduct from "../../components/DeleteProduct";
+import DeleteProduct from "../DeleteProduct";
 import { ContainerProducts, ContainerProductsPage, ProductCard } from "../productById/styled";
-import PatchProduct from "../../components/PatchProduct";
+import PatchProduct from "../PatchProduct";
 import { ProductmyCard } from "./styled";
+import { Link } from "react-router-dom";
 
 export default function MyProductsPage() {
     const [myProduct, setMyProduct] = useState(undefined);
@@ -25,14 +26,14 @@ export default function MyProductsPage() {
 
     const handlePatchClick = () => {
         alert("Pedido de alteração recebido!");
-        
-        <PatchProduct/>
+
+        <PatchProduct />
     }
 
     const handleDeleteClick = () => {
         alert("Pedido de deleção recebido!");
 
-        <DeleteProduct/>
+        <DeleteProduct />
     }
 
 
@@ -46,10 +47,13 @@ export default function MyProductsPage() {
                         <p>{p.name}</p>
                         <p>R${(p.price / 100).toFixed(2)}</p>
                         <div>
-                            <button onClick={handlePatchClick}>Alterar produto para indisponível!</button>
-                           
-                            <button onClick={handleDeleteClick}>Apagar este produto!</button>
-                            
+                            <Link to={`/patch/${p.id}`}>
+                                <button onClick={handlePatchClick}>Alterar produto para indisponível!</button>
+                            </Link>
+                            <Link to={`/delete/${p.id}`}>
+                                <button onClick={handleDeleteClick}>Apagar este produto!</button>
+                            </Link>
+
                         </div>
                     </ProductmyCard>
                 ))}
