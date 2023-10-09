@@ -2,8 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import HomePage from "./pages/homePage/HomePage"
 import SignInPage from "./pages/signIn/SignInPage"
 import SignUpPage from "./pages/signUp/SignUpPage"
-import MyProductsPage from "./pages/MyProducts"
+import MyProductsPage from "./pages/myProducts/MyProducts"
 import ProductsPage from "./pages/Products/ProductsPage"
+import ProductsByIdPage from "./pages/productById/ProductsByIdPage"
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         <Route path="/signin" element= {<SignInPage />}/>
         <Route path="/signup" element= {<SignUpPage />}/>
         <Route path="/products" element= {<ProductsPage />}/>
-        
+        <Route path="/products/:id" element= {<ProductsByIdPage />}/>
         <Route path="/myproducts" element= {<MyProductsPage />}/>
 
       </Routes>
@@ -26,9 +27,3 @@ function App() {
 
 export default App
 
-/* 
-<Route path="/products/:id" element= {<ProductPage />}/>
----------------------------
-   NÃO ESQUECER DA NAVBAR
----------------------------
-*/

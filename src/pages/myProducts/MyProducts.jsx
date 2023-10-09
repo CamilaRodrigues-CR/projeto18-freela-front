@@ -1,36 +1,33 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
+import { ContainerProducts } from "../Products/styled";
 import apiProducts from "../../constants/apiProducts";
-import { ContainerProducts, ContainerProductsPage, ProductCard } from "./styled";
-import { Link } from "react-router-dom";
+import { ContainerMyPage } from "./styled";
 
-export default function ProductsPage() {
-    const [products, setProducts] = useState(undefined);
+export default function MyProductsPage() {
+    const [myProduct, setMyProduct] = useState(undefined);
     const token = localStorage.getItem('token');
 
     useEffect(() => {
-
-        apiProducts.getProducts(token)
+        apiProducts.myProducts(token)
             .then(res => {
-                setProducts(res.data)
+                setMyProduct(res.data)
                 console.log(res.data)
             })
-            .catch(erro => {
-                console.log(erro.response.data)
-            });
+            .catch(err => console.log(err.response.data))
 
     }, []);
 
-    if (products === undefined) {
+    if (myProduct === undefined) {
         return <div>Carregando...</div>;
     }
 
 
     return (
-        <ContainerProductsPage>
+        <ContainerProducts>
             <Navbar />
-            <ContainerProducts>
-                {products.map(p => (
+            <ContainerMyPage>
+            {myProduct.map(p => (
                     <Link key={p.id} to={`/products/${p.id}`}>
                         <ProductCard>
                             <img src={p.photo} alt={p.name} />
@@ -39,7 +36,7 @@ export default function ProductsPage() {
                         </ProductCard>
                     </Link>
                 ))}
-            </ContainerProducts>
-        </ContainerProductsPage>
+            </ContainerMyPage>
+        </ContainerProducts>
     )
 }

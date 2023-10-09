@@ -19,12 +19,12 @@ function getProducts(token) {
     return promise;
 }
 
-function productsById(token){
-    const promise = axios.get(`${import.meta.env.VITE_API_URL}/products/:id`, createConfig(token))    
+function productsById(token, id){
+    const promise = axios.get(`${import.meta.env.VITE_API_URL}/products/${id}`, createConfig(token))    
     return promise;
 }
 
-function myProducts(){
+function myProducts(token){
     const promise = axios.get(`${import.meta.env.VITE_API_URL}/myProducts`, createConfig(token))    
     return promise;
 }
