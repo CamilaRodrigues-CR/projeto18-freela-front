@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Navbar from "../navbar/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import apiProducts from "../../constants/apiProducts";
 import { ContainerProducts, ContainerProductsPage, ProductCard } from "./styled";
 import { Link } from "react-router-dom";
@@ -7,12 +7,14 @@ import { Link } from "react-router-dom";
 export default function ProductsPage() {
     const [products, setProducts] = useState(undefined);
     const token = localStorage.getItem('token');
-    console.log(token)
 
     useEffect(() => {
 
         apiProducts.getProducts(token)
-            .then(resp => setProducts(resp.data))
+            .then(res => {
+                setProducts(res.data)
+                console.log(res.data)
+            })
             .catch(erro => {
                 console.log(erro.response.data)
                 console.log(token)
@@ -29,11 +31,12 @@ export default function ProductsPage() {
         <ContainerProductsPage>
             <Navbar />
             <ContainerProducts>
-            {products.map(p => (
+                {products.map(p => (
                     <Link key={p.id} to={`/products/${p.id}`}>
                         <ProductCard>
                             <img src={p.photo} alt={p.name} />
                             <p>{p.name}</p>
+                            <p>R${(p.price / 100).toFixed(2)}</p>
                         </ProductCard>
                     </Link>
                 ))}

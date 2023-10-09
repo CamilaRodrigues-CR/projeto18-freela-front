@@ -19,7 +19,7 @@ function getProducts(token) {
     return promise;
 }
 
-function productsById(){
+function productsById(token){
     const promise = axios.get(`${import.meta.env.VITE_API_URL}/products/:id`, createConfig(token))    
     return promise;
 }
